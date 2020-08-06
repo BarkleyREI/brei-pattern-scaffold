@@ -1,0 +1,18 @@
+<div class="callout{{#if style}} {{ style }}{{/if}} user-markup">
+	<h2 class="callout__heading">{{{ heading }}}</h2>
+	{{#stringCompare type "general"}}
+		{{> @rule style="rule--secondary"}}
+	{{else}}
+		{{#stringCompare type "urgent"}}
+			{{> @rule style="rule--quaternary"}}
+		{{else}}
+			{{> @rule style="rule--quinary"}}
+		{{/stringCompare}}
+	{{/stringCompare}}
+	{{#with date}}
+	<time class="callout__date" datetime="{{ datetime }}">{{{ text }}}</time>
+	{{> @rule style="rule--secondary"}}
+	{{/with}}
+	<p class="callout__desc">{{{ desc }}}</p>
+	{{> @button-list this}}
+</div>

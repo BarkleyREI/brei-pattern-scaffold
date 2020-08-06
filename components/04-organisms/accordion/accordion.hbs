@@ -1,0 +1,17 @@
+<div class="accordion" role="presentation">
+	{{#each panels}}
+		<section class="accordion__panel{{#if style}} {{ style }}{{/if}}{{#if active}} accordion__panel--is-active{{/if}}">
+			<h3 class="accordion__title">
+				<button id="accordion__trigger--{{ @index }}" class="accordion__trigger" aria-controls="accordion__content--{{ @index }}" aria-expanded="{{#if active}}true{{else}}false{{/if}}" aria-pressed="{{#if active}}true{{else}}false{{/if}}" tabindex="0" type="button">{{{ heading }}}<div class="accordion__icon" role="presentation">{{svg "plus"}}{{svg "minus"}}</div></button>
+			</h3>
+			<div id="accordion__content--{{ @index }}" class="accordion__content" aria-labelledby="accordion__trigger--{{ @index }}" aria-hidden="{{#if active}}false{{else}}true{{/if}}" role="region">
+				<div class="user-markup">
+					{{{ copy }}}
+					{{#with button}}
+						{{> @button this}}
+					{{/with}}
+				</div>
+			</div>
+		</section>
+	{{/each}}
+</div>

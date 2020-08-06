@@ -1,0 +1,20 @@
+{
+	"title": "Primary Nav",
+	"status": "ready",
+	"context": {
+		"items": [
+			{
+				"title": "Academics",
+				"url": "#"
+			},
+			{
+				"title": "Another link",
+				"url": "#"
+			},
+			{
+				"title": "Yet another link",
+				"url": "#"
+			}
+		]
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"title": "Social Media Button",
+	"status": "ready",
+	"context": {
+		"url": "#",
+		"label": "Facebook",
+		"icon": "facebook",
+		"style": "social-media-button--primary"
+	},
+	"variants": [
+		{
+			"name": "Twitter",
+			"context": {
+				"url": "#",
+				"label": "Twitter",
+				"icon": "twitter",
+				"style": "social-media-button--primary"
+			}
+		},
+		{
+			"name": "Instagram",
+			"context": {
+				"url": "#",
+				"label": "Instagram",
+				"icon": "instagram",
+				"style": "social-media-button--primary"
+			}
+		}
+	]
+}

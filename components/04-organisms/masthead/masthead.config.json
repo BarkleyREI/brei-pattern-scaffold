@@ -1,0 +1,24 @@
+{
+	"title": "Masthead",
+	"status": "ready",
+	"context": {
+		"heading": "Masthead Headline Lorem Ipsum",
+		"desc": "Structured masthead copy max character count 105 set lorem set ipsum dolor sit amet consectetur adipise.",
+		"image": {
+			"url": "/img/masthead/placeholder.png",
+			"label": "1440x500",
+			"style": "image--is-placeholder",
+			"image-watermark": {
+				"style": "image-watermark--large",
+				"title": "Image Placeholder",
+				"ratio": "83:25",
+				"height": 500,
+				"width": 1440
+			}
+		},
+		"scripts" : [
+			"vendor",
+			"main"
+		]
+	}
+}

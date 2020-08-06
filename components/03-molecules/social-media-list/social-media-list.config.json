@@ -1,0 +1,26 @@
+{
+	"title": "Social Media List",
+	"status": "ready",
+	"context": {
+		"items": [
+			{
+				"url": "#",
+				"label": "Facebook",
+				"icon": "facebook",
+				"style": "social-media-button--primary"
+			},
+			{
+				"url": "#",
+				"label": "Twitter",
+				"icon": "twitter",
+				"style": "social-media-button--primary"
+			},
+			{
+				"url": "#",
+				"label": "Instagram",
+				"icon": "instagram",
+				"style": "social-media-button--primary"
+			}
+		]
+	}
+}

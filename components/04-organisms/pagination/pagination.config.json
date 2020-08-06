@@ -1,0 +1,30 @@
+{
+	"title": "Pagination",
+	"status": "wip",
+	"context": {
+		"items": [
+			{
+				"style": "pagination__link--is-active",
+				"url": "#",
+				"label": "Current page, page 1",
+				"title": "1",
+				"current": true
+			},
+			{
+				"url": "#",
+				"label": "Go to page 2",
+				"title": "2"
+			},
+			{
+				"url": "#",
+				"label": "Go to page 3",
+				"title": "3"
+			},
+			{
+				"url": "#",
+				"label": "Go to page 4",
+				"title": "4"
+			}
+		]
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"title": "Slider Dot",
+	"status": "ready",
+	"context": {
+		"title": 1,
+		"isDisabled": false
+	},
+	"variants": [
+		{
+			"name": "Active",
+			"context": {
+				"title": 1,
+				"style": "slider-dot--is-active",
+				"isDisabled": true
+			}
+		},
+		{
+			"name": "Disabled",
+			"context": {
+				"title": 1,
+				"style": "",
+				"isDisabled": true
+			}
+		}
+	]
+}

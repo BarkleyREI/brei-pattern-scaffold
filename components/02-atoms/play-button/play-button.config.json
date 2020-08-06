@@ -1,0 +1,30 @@
+{
+	"title": "Play Button",
+	"status":"ready",
+	"context": {
+		"style": "play-button--primary",
+		"url": "#",
+		"label": "Play YouTube video in a modal"
+	},
+	"variants": [
+		{
+			"name": "Disabled",
+			"context": {
+				"isDisabled": true
+			}
+		},
+		{
+			"name": "Secondary",
+			"context": {
+				"style": "play-button--secondary"
+			}
+		},
+		{
+			"name": "Secondary Disabled",
+			"context": {
+				"style": "play-button--secondary",
+				"isDisabled": true
+			}
+		}
+	]
+}

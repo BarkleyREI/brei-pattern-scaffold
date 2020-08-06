@@ -1,0 +1,6 @@
+{
+  "type": "pattern",
+  "app": "assets",
+  "dist": "public",
+  "deploy": "../../web"
+}
