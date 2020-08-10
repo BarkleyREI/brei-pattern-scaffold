@@ -24,6 +24,7 @@
 		"@babel/core": "~7.8.3",
 		"@babel/preset-env": "~7.8.3",
 		"autoprefixer": "~9.7.1",
+		"brei-util": "~1.0.8",
 		"copy": "~0.3.2",
 		"cssnano": "~4.1.7",
 		"customizr": "~1.4.0",
