@@ -53,7 +53,7 @@ fractal.docs.engine(hbs);
 /*
  * Final build destination
  */
-fractal.web.set('builder.dest', __dirname + config.deploy + '/web');
+fractal.web.set('builder.dest', __dirname + '/' + config.deploy);
 
 /*
  * Theme
