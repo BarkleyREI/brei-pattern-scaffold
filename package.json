@@ -43,6 +43,7 @@
 		"imagemin-svgo": "~7.1.0",
 		"imagemin-webp": "~5.1.0",
 		"mkdirp": "^1.0.4",
+		"mocha": "~7.1.0",
 		"postcss": "~7.0.6",
 		"postcss-cli": "~7.1.0",
 		"postcss-loader": "~3.0.0",
