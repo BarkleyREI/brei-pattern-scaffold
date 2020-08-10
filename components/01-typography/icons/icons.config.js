@@ -1,13 +1,20 @@
 'use strict';
 
-const icons = require('../../../assets/scss/icons/selection.json');
+const fs = require('fs');
 
-var siteIcons = [];
+let icons = null;
+const siteIcons = [];
 
-if (typeof icons.icons !== 'undefined') {
-	icons.icons.forEach(icon => {
-		siteIcons.push(icon.properties.name);
-	});
+if (fs.existsSync('../../../assets/scss/icons/selection.json')) {
+
+	icons = require('../../../assets/scss/icons/selection.json');
+
+	if (typeof icons.icons !== 'undefined') {
+		icons.icons.forEach(icon => {
+			siteIcons.push(icon.properties.name);
+		});
+	}
+
 }
 
 module.exports = {
