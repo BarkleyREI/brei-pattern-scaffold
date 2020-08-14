@@ -30,3 +30,5 @@ This project pulls in various 4.0.0 generator npm scripts to take care of:
 This page could provide an intro to the project. It could link to websites or examples. It could even have the client's logo.
 
 It's written in Markdown and is easy to update and add more pages.
+
+<p>You can also write regular HTML.</p>
