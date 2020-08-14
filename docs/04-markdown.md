@@ -19,10 +19,14 @@ title: "Supported Markdown"
 
 *italicized text*
 
+~~Strikethrough~~
+
 ```markdown
 **bold text**
 
 *italicized text*
+
+~~Strikethrough~~
 ```
 
 ## Blockquote
@@ -83,4 +87,60 @@ function test() {
     return 'Fenced code block'
 }
 \```   [without slash]
+``` 
+
+## Horizontal Rule
+
+---
+
+```markdown
+---
 ```
+
+## Links
+
+[Our Website](https://barkleyrei.com)
+
+```markdown
+[Our Website](https://barkleyrei.com)
+```
+
+## Images
+
+![Have a coffee](/img/_docs/coffee.png)
+
+```markdown
+![Have a coffee](/img/_docs/coffee.png)
+```
+
+## Tables
+
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+```markdown
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+```
+
+## Task List
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
+```markdown
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+```
+
+## Markdown Cheat Sheet
+
+Not all syntax on this sheet may be supported in Fractal.
+
+[Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
