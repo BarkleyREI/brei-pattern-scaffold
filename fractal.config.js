@@ -7,7 +7,7 @@ const path = require('path');
 
 const exec = require('child_process').exec;
 
-const config = require('_config/_brei.json');
+const config = require('./_config/_brei.json');
 
 /*
  * Require the Fractal module
@@ -42,7 +42,11 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
 /*
  * Handlebars Helpers
  */
-const helpers = require('./lib/helpers/helpers');
+const breiHelpers = require('./lib/helpers/helpers');
+const handlebarsHelpers = require('handlebars-helpers')();
+
+let helpers = Object.assign({}, handlebarsHelpers, breiHelpers);
+
 const hbs = require('@frctl/handlebars')({
 	helpers: helpers
 });
@@ -80,33 +84,63 @@ fractal.web.theme(myCustomisedTheme);
 
 /*
  * BrowserSync options. What should we do when various static assets update?
- *
- * May need some optimization. Fractal gets REALLY MAD when you update too many things at once.
  */
 fractal.web.set('server.sync', true);
 fractal.web.set('server.syncOptions', {
 	ghostMode: false,
 	open: "local",
 	reloadThrottle: 1000,
-	reloadDelay: 1000,
+	// logLevel: "debug",
+	logLevel: "info",
+	logConnections: false,
+	notify: false,
+	minify: false,
 	files: [
 		{
 			match: ['./assets/scss/**/*.scss'],
 			fn: function (event, file) {
-				exec('npm run preprocess:css', (error, stdout, stderr) => {
-					if (error) {
-						console.error(`exec error: ${error}`);
-						return;
+				// console.log(event, file);
+				if (event === 'change') {
+					console.log('SCSS Change - ' + file + ' - running preprocess:css:server');
+					exec('npm run preprocess:css:server', (error, stdout, stderr) => {
+						if (error) {
+							console.error(`exec error: ${error}`);
+							return;
+						}
+						if (stderr) {
+							console.error(`ERROR:\n ${stderr}`);
+						}
+					});
+				}
+				if (event === 'add' || event === 'unlink') {
+					if (!initFlag) {
+						if (event === 'add') {
+							console.log('SCSS Addition - ' + file + ' - running sass:index');
+						}
+						if (event === 'unlink') {
+							console.log('SCSS Deletion - ' + file + ' - running sass:index');
+						}
+						exec('npm run preprocess:css', (error, stdout, stderr) => {
+							if (error) {
+								console.error(`exec error: ${error}`);
+								return;
+							}
+							if (stderr) {
+								console.error(`ERROR:\n ${stderr}`);
+							}
+						});
 					}
-					if (stderr) {
-						console.error(`ERROR:\n ${stderr}`);
-					}
-				});
+				}
+			},
+			options: {
+				ignored: '**/_all.scss',
+				ignoreInitial: true
 			}
 		},
 		{
 			match: ['./assets/ejs/**/*.js'],
 			fn: function (event, file) {
+				console.log('JS Change - ' + file + ' - running preprocess:js');
 				exec('npm run preprocess:js', (error, stdout, stderr) => {
 					if (error) {
 						console.error(`exec error: ${error}`);
@@ -116,11 +150,15 @@ fractal.web.set('server.syncOptions', {
 						console.error(`ERROR:\n ${stderr}`);
 					}
 				});
+			},
+			options: {
+				ignoreInitial: true
 			}
 		},
 		{
 			match: ['./assets/img/**/*'],
 			fn: function (event, file) {
+				console.log('IMG Change - ' + file + ' - running build:img');
 				exec('npm run build:img', (error, stdout, stderr) => {
 					if (error) {
 						console.error(`exec error: ${error}`);
@@ -130,6 +168,9 @@ fractal.web.set('server.syncOptions', {
 						console.error(`ERROR:\n ${stderr}`);
 					}
 				});
+			},
+			options: {
+				ignoreInitial: true
 			}
 		}
 	]
