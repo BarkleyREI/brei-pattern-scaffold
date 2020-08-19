@@ -1,6 +1,6 @@
 {
 	"name": "brei-pattern-scaffold",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Pattern library client project by BarkleyREI",
 	"author": {
 		"name": "BarkleyREI"
@@ -13,6 +13,9 @@
 		"IE >= 11",
 		"iOS >= 12"
 	],
+	"eslintConfig": {
+		"root": true
+	},
 	"dependencies": {
 		"foundation-sites": "~6.6.2",
 		"jquery": "~3.5.0",
