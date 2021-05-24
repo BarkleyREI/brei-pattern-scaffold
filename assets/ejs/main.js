@@ -1,9 +1,24 @@
-const ready = () => {
+// import { ready } from './lib/utils';
 
-	console.log('Hello, BarkleyREI!');
+// import { primaryNav } from './modules/primaryNav';
+
+const main = {
+
+	elem: {
+	},
+
+	init() {
+
+		this.bindUIActions();
+
+	},
+
+	bindUIActions() {
+
+	}
 
 };
 
-window.addEventListener('DOMContentLoaded', ready, false);
-
-$(document).foundation();
+ready(function () {
+	main.init();
+});
