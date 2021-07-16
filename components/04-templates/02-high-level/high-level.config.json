@@ -1,0 +1,34 @@
+{
+	"title": "High Level",
+	"status": "ready",
+	"preview": "@template",
+	"meta": {
+		"scripts": [
+			"vendor",
+			"main",
+			"level",
+			"map"
+		]
+	},
+	"context": {
+		"title": "High Level H1 Heading",
+		"main": []
+	},
+	"variants": [
+		{
+			"name": "Admissions Detail",
+			"context": {
+				"title": "",
+				"main": []
+			}
+		},
+		{
+			"name": "Campus Landing",
+			"status": "ready",
+			"context": {
+				"title": "",
+				"main": []
+			}
+		}
+	]
+}

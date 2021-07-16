@@ -1,0 +1,24 @@
+<main id="main" class="level notfound">
+
+	{{#if masthead}}
+		{{render (concat '@' masthead) }}
+	{{/if}}
+
+	<div class="row level__row">
+		<div class="level__content large-8 large-push-2 columns">
+
+			<div class="level__fourfour">
+				<img src="{{ path '/img/404.svg' }}" alt="404 Page Not Found" />
+			</div>
+
+			{{#if title}}
+				<h1 class="page-title">{{{title}}}</h1>
+			{{/if}}
+
+			{{#each main}}
+				{{render (concat '@' this.name) this.context merge=true}}
+			{{/each}}
+		</div>
+	</div>
+
+</main>

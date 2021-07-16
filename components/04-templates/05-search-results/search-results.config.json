@@ -1,0 +1,17 @@
+{
+	"title": "Search Results",
+	"status": "ready",
+	"preview": "@template",
+	"meta": {
+		"scripts": [
+			"vendor",
+			"main",
+			"level"
+		]
+	},
+	"context": {
+		"title": "Search Results",
+		"masthead": "masthead--default",
+		"main": []
+	}
+}
