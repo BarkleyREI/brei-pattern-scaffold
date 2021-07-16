@@ -1,9 +1,0 @@
-<nav class="pagination{{#if style}} {{ style }}{{/if}}" aria-label="Pagination">
-	<ul class="pagination__list no-bullet">
-	{{#each items}}
-		<li class="pagination__item">
-			<a class="pagination__link{{#if style}} {{ style }}{{/if}}" href="{{{ url }}}" aria-label="{{{ label }}}"{{#if current}} aria-current="page" tabindex="-1"{{/if}}{{#if isDisabled}} tabindex="-1"{{/if}}>{{{ title }}}<div class="pagination__rule" role="presentation"></div></a>
-		</li>
-	{{/each}}
-	</ul>
-</nav>

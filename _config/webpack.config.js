@@ -34,27 +34,46 @@ let config = {
 		jquery: 'jQuery'
 	},
 	module: {
-		rules: [{
-			test: /\.js$/,
-			include: path.resolve(projectDir, 'assets/ejs'),
-			use: [
-				{
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env']
+		rules: [
+			{
+				test: /\.js$/,
+				include: path.resolve(projectDir, 'assets/ejs'),
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env']
+						}
+					},
+					{
+						loader: 'eslint-loader',
+						options: {
+							quiet: true,
+							failOnError: true,
+							configFile: '_config/.eslintrc.json',
+							ignorePath: '_config/.eslintignore'
+						}
 					}
-				},
-				{
-					loader: 'eslint-loader',
-					options: {
-						quiet: true,
-						failOnError: true,
-						configFile: '_config/.eslintrc.json',
-						ignorePath: '_config/.eslintignore'
+				]
+			},
+			{
+				test: /\.scss$/,
+				include: path.resolve(projectDir, 'assets/scss'),
+				use: [
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								includePaths: [
+									'assets/scss',
+									path.resolve(projectDir, './node_modules')
+								],
+							}
+						}
 					}
-				}
-			]
-		}]
+				]
+			}
+		]
 	},
 	devtool: false,
 	plugins: [

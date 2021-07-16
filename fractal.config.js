@@ -14,15 +14,27 @@ const config = require('./_config/_brei.json');
  */
 const fractal = module.exports = require('@frctl/fractal').create();
 
+
+/*
+ * Adjust settings if we are in a server versus a fully built library
+ */
+let pargs = process.argv;
+let isStart = pargs.includes('start');
+
 /*
  * Give your project a title.
  */
-fractal.set('project.title', 'UCI Enrollment');
+fractal.set('project.title', config.title);
 
 /*
- * Call all the stuff "Patterns"
+ * Change nav from Components to Library
  */
-fractal.components.set('title', 'Patterns');
+fractal.components.set('label', 'Library');
+
+/*
+ * Call all the stuff "Components"
+ */
+fractal.components.set('title', 'Components');
 
 /*
  * Tell Fractal where to look for components.
@@ -33,6 +45,13 @@ fractal.components.set('path', path.join(__dirname, 'components'));
  * Tell Fractal where to look for documentation pages.
  */
 fractal.docs.set('path', path.join(__dirname, 'docs'));
+
+/*
+ * If we're running a full build, we do not want the development section of docs.
+ */
+if (!isStart) {
+	fractal.docs.set('exclude', '**/development/**');
+}
 
 /*
  * Tell the Fractal web preview plugin where to look for static assets.
@@ -60,27 +79,42 @@ fractal.docs.engine(hbs);
 fractal.web.set('builder.dest', __dirname + '/' + config.deploy);
 
 /*
- * Theme
+ * Custom theme settings. Uses custom BarkleyREI subtheme of Mandelbrot.
+ *
+ * Theme located at: https://github.com/BarkleyREI/rei-cursion
  */
-const mandelbrot = require('@frctl/mandelbrot');
+let mode = 'development';
+let themeSettings = {
+	'logo': ''
+};
+
+// Client facing settings
+if (!isStart) {
+	mode = 'production';
+}
 
 /*
- * Possible skins:
- * aqua | black | blue | default | fuchsia | green | grey | lime | maroon | navy | olive | orange | purple | red | teal | white | yellow
- *
- * default = blue
- *
- * Possible panels: html | view | context | resources | info | notes
+ * Theme
  */
-const myCustomisedTheme = mandelbrot({
-	skin: "black",
-	format: "json",
-	panels: ["info", "notes", "html", "resources"],
-	favicon: '/favicon.ico',
-	highlightStyles: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css'
-});
+const mySubTheme = require('rei-cursion');
+const myCustomisedTheme = mySubTheme(themeSettings, mode);
+
+// const mandelbrot = require('@frctl/mandelbrot');
+// const myCustomisedTheme = mandelbrot(themeSettings);
 
 fractal.web.theme(myCustomisedTheme);
+
+// Are we running a server?
+if (mode === 'development') {
+	fractal.set('project.is_server', 'true');
+}
+
+// CDNs
+fractal.set('project.tailwindcdn', 'https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css');
+fractal.set('project.jquerycdn', 'https://code.jquery.com/jquery-3.5.1.min.js');
+
+// Compiled date
+fractal.set('project.compiled', new Date().toLocaleString('en'));
 
 /*
  * BrowserSync options. What should we do when various static assets update?
@@ -88,10 +122,10 @@ fractal.web.theme(myCustomisedTheme);
 fractal.web.set('server.sync', true);
 fractal.web.set('server.syncOptions', {
 	ghostMode: false,
-	open: "local",
+	open: 'local',
 	reloadThrottle: 1000,
 	// logLevel: "debug",
-	logLevel: "info",
+	logLevel: 'info',
 	logConnections: false,
 	notify: false,
 	minify: false,
@@ -99,7 +133,6 @@ fractal.web.set('server.syncOptions', {
 		{
 			match: ['./assets/scss/**/*.scss'],
 			fn: function (event, file) {
-				// console.log(event, file);
 				if (event === 'change') {
 					console.log('SCSS Change - ' + file + ' - running preprocess:css:server');
 					exec('npm run preprocess:css:server', (error, stdout, stderr) => {
@@ -113,23 +146,21 @@ fractal.web.set('server.syncOptions', {
 					});
 				}
 				if (event === 'add' || event === 'unlink') {
-					if (!initFlag) {
-						if (event === 'add') {
-							console.log('SCSS Addition - ' + file + ' - running sass:index');
-						}
-						if (event === 'unlink') {
-							console.log('SCSS Deletion - ' + file + ' - running sass:index');
-						}
-						exec('npm run preprocess:css', (error, stdout, stderr) => {
-							if (error) {
-								console.error(`exec error: ${error}`);
-								return;
-							}
-							if (stderr) {
-								console.error(`ERROR:\n ${stderr}`);
-							}
-						});
+					if (event === 'add') {
+						console.log('SCSS Addition - ' + file + ' - running sass:index');
 					}
+					if (event === 'unlink') {
+						console.log('SCSS Deletion - ' + file + ' - running sass:index');
+					}
+					exec('npm run preprocess:css', (error, stdout, stderr) => {
+						if (error) {
+							console.error(`exec error: ${error}`);
+							return;
+						}
+						if (stderr) {
+							console.error(`ERROR:\n ${stderr}`);
+						}
+					});
 				}
 			},
 			options: {
