@@ -1,0 +1,16 @@
+{
+	"title": "404 Page Not Found",
+	"status": "ready",
+	"preview": "@template",
+	"meta": {
+		"scripts": [
+			"vendor",
+			"main",
+			"level"
+		]
+	},
+	"context": {
+		"title": "Headline Lorem Ipsum Dolor",
+		"main": []
+	}
+}

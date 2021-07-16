@@ -1,0 +1,15 @@
+{
+	"title": "Home",
+	"status": "wip",
+    "preview": "@template",
+    "meta": {
+        "scripts": [
+            "vendor",
+            "main",
+            "home"
+        ]
+    },
+	"context": {
+
+	}
+}
