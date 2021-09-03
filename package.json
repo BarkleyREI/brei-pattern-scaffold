@@ -87,7 +87,7 @@
 		"sass:build": "npm rebuild node-sass && node lib/nodesass.js",
 		"sass:lint": "npm run postcss:fixsass && stylelint \"assets/scss/**/*.scss\" --fix --cache --cache-location \"./.stylelintcache/\" --config \"./_config/.stylelintrc.json\" --ignore-path \"./_config/.stylelintignore\"",
 		"scaffold": "npm run build:img && npm run preprocess",
-		"postinstall": "npm run build:img && npm run modernizr",
+		"postinstall": "npm run build:img && npm run modernizr && sass:index",
 		"start": "npm run scaffold && fractal start",
 		"test": "mocha"
 	}
