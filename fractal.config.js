@@ -110,7 +110,7 @@ if (mode === 'development') {
 }
 
 // CDNs
-fractal.set('project.tailwindcdn', 'https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css');
+fractal.set('project.tailwindcdn', 'https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css');
 fractal.set('project.jquerycdn', 'https://code.jquery.com/jquery-3.5.1.min.js');
 
 // Compiled date
