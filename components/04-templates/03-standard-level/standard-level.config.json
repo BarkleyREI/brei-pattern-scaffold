@@ -6,9 +6,7 @@
 	"meta": {
 		"scripts": [
 			"vendor",
-			"main",
-			"level",
-			"map"
+			"main"
 		]
 	},
 	"context": {
@@ -21,7 +19,7 @@
 		{
 			"name": "Standard Level (No Masthead)",
 			"context": {
-				"masthead": "masthead--default"
+				"masthead": ""
 			}
 		},
 		{

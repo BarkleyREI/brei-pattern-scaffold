@@ -109,6 +109,9 @@ if (mode === 'development') {
 	fractal.set('project.is_server', 'true');
 }
 
+// SVG Class Name
+fractal.set('project.svgClass', 'brei-icon');
+
 // CDNs
 fractal.set('project.tailwindcdn', 'https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css');
 fractal.set('project.jquerycdn', 'https://code.jquery.com/jquery-3.5.1.min.js');
