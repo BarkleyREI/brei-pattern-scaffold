@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const projectDir = __dirname + '/..';
 const srcDir = projectDir + '/assets/ejs';
@@ -44,15 +45,6 @@ let config = {
 						options: {
 							presets: ['@babel/preset-env']
 						}
-					},
-					{
-						loader: 'eslint-loader',
-						options: {
-							quiet: true,
-							failOnError: true,
-							configFile: '_config/.eslintrc.json',
-							ignorePath: '_config/.eslintignore'
-						}
 					}
 				]
 			},
@@ -77,6 +69,12 @@ let config = {
 	},
 	devtool: false,
 	plugins: [
+		new ESLintPlugin({
+			context: path.resolve(projectDir, 'assets/ejs'),
+			extensions: ['js'],
+			overrideConfigFile: '_config/.eslintrc.json',
+			ignorePath: '_config/.eslintignore'
+		}),
 		new webpack.SourceMapDevToolPlugin({
 			filename: '[name].js.map',
 			exclude: ['vendor.js', 'lib/**.js']
@@ -92,13 +90,9 @@ module.exports = (env, argv) => {
 	}
 
 	if (argv.mode === 'production') {
-		// config.output.path = path.resolve(projectDir, 'dist/js');
 		config.optimization = {
 			minimizer: [
-				new UglifyJsPlugin({
-					cache: true,
-					sourceMap: true
-				})
+				new TerserPlugin()
 			]
 		};
 	}
