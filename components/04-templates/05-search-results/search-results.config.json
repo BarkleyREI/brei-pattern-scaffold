@@ -5,13 +5,12 @@
 	"meta": {
 		"scripts": [
 			"vendor",
-			"main",
-			"level"
+			"main"
 		]
 	},
 	"context": {
 		"title": "Search Results",
-		"masthead": "masthead--default",
+		"masthead": "",
 		"main": []
 	}
 }

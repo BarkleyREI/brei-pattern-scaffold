@@ -5,8 +5,7 @@
 	"meta": {
 		"scripts": [
 			"vendor",
-			"main",
-			"level"
+			"main"
 		]
 	},
 	"context": {
