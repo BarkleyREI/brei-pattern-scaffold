@@ -1,5 +1,8 @@
-// import { ready } from './lib/utils';
+'use strict';
 
+import { ready } from 'brei-project-utils';
+
+// Example of importing a custom module
 // import { primaryNav } from './modules/primaryNav';
 
 const main = {
