@@ -54,7 +54,7 @@
 		"postcss-sass": "~0.5.0",
 		"postcss-scss": "~4.0.3",
 		"postcss-sorting": "~7.0.1",
-		"rei-cursion": "~1.0.0",
+		"rei-cursion": "~1.1.0",
 		"sass-loader": "~12.4.0",
 		"shelljs": "~0.8.5",
 		"stylelint": "~14.3.0",
