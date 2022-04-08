@@ -56,7 +56,7 @@ if (!isStart) {
 /*
  * Tell the Fractal web preview plugin where to look for static assets.
  */
-fractal.web.set('static.path', path.join(__dirname, 'public'));
+fractal.web.set('static.path', path.join(__dirname, config.dist));
 
 /*
  * Handlebars Helpers
@@ -134,7 +134,7 @@ fractal.web.set('server.syncOptions', {
 	minify: false,
 	files: [
 		{
-			match: ['./assets/scss/**/*.scss'],
+			match: ['./' + config.app + '/scss/**/*.scss'],
 			fn: function (event, file) {
 				if (event === 'change') {
 					console.log('SCSS Change - ' + file + ' - running preprocess:css:server');
@@ -172,7 +172,7 @@ fractal.web.set('server.syncOptions', {
 			}
 		},
 		{
-			match: ['./assets/ejs/**/*.js'],
+			match: ['./' + config.app + '/ejs/**/*.js'],
 			fn: function (event, file) {
 				console.log('JS Change - ' + file + ' - running preprocess:js');
 				exec('npm run preprocess:js', (error, stdout, stderr) => {
@@ -190,7 +190,7 @@ fractal.web.set('server.syncOptions', {
 			}
 		},
 		{
-			match: ['./assets/img/**/*'],
+			match: ['./' + config.app + '/img/**/*'],
 			fn: function (event, file) {
 				console.log('IMG Change - ' + file + ' - running build:img');
 				exec('npm run build:img', (error, stdout, stderr) => {

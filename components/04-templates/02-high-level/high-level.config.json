@@ -16,7 +16,7 @@
 		{
 			"name": "Admissions Detail",
 			"context": {
-				"title": "",
+				"title": "Admissions Detail",
 				"main": []
 			}
 		},
@@ -24,7 +24,7 @@
 			"name": "Campus Landing",
 			"status": "ready",
 			"context": {
-				"title": "",
+				"title": "Campus Landing",
 				"main": []
 			}
 		}
