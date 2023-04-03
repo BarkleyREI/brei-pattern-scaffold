@@ -1,6 +1,6 @@
 # Contributing
 
-To contribute to these repos, you must be an employee of BarkleyREI. We do not accept pull requests from non-employees. We welcome feedback, and you are welcome to use any useful code you find in these repos, but we cannot accept code from outside sources.
+To contribute to these repos, you must be an employee of Barkley. We do not accept pull requests from non-employees. We welcome feedback, and you are welcome to use any useful code you find in these repos, but we cannot accept code from outside sources.
 
 ## Submitting changes
 

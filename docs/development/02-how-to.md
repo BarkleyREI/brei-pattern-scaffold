@@ -77,7 +77,7 @@ A pattern can have one of three statuses:
 
 It is possible to create custom statuses with additional configuration of the theme.
 
-Currently, this is not displayed in the UI with the BarkleyREI Fractal theme.
+Currently, this is not displayed in the UI with the Barkley Fractal theme.
 
 ### Preview
 
@@ -312,5 +312,5 @@ Note: This is custom functionality and not documented on Fractal's website.
 
 ## Theme
 
-BarkleyREI uses a custom Fractal theme. The theme can be found on GitHub here: [https://github.com/BarkleyREI/rei-cursion](https://github.com/BarkleyREI/rei-cursion)
+Barkley uses a custom Fractal theme. The theme can be found on GitHub here: [https://github.com/BarkleyREI/rei-cursion](https://github.com/BarkleyREI/rei-cursion)
 

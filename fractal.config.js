@@ -79,7 +79,7 @@ fractal.docs.engine(hbs);
 fractal.web.set('builder.dest', __dirname + '/' + config.deploy);
 
 /*
- * Custom theme settings. Uses custom BarkleyREI subtheme of Mandelbrot.
+ * Custom theme settings. Uses custom Barkley subtheme of Mandelbrot.
  *
  * Theme located at: https://github.com/BarkleyREI/rei-cursion
  */
@@ -90,7 +90,8 @@ let themeSettings = {
 
 // Client facing settings
 if (!isStart) {
-	mode = 'production';
+	// mode = 'production';
+	mode = 'development'
 }
 
 /*
