@@ -31,7 +31,7 @@ We are not doing that here because we want Tailwind separate so that it is only 
 
 ## Custom theme
 
-BarkleyREI uses a custom theme based on Fractal's default theme Mandelbrot. 
+Barkley uses a custom theme based on Fractal's default theme Mandelbrot. 
 
 The theme is located here: [https://github.com/BarkleyREI/rei-cursion](https://github.com/BarkleyREI/rei-cursion)
 

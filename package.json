@@ -1,9 +1,9 @@
 {
 	"name": "brei-pattern-scaffold",
-	"version": "0.4.0",
-	"description": "Pattern library client project by BarkleyREI",
+	"version": "0.4.1",
+	"description": "Pattern library client project by Barkley",
 	"author": {
-		"name": "BarkleyREI"
+		"name": "Barkley"
 	},
 	"license": "ISC",
 	"browserslist": [
@@ -54,7 +54,7 @@
 		"postcss-sass": "~0.5.0",
 		"postcss-scss": "~4.0.3",
 		"postcss-sorting": "~7.0.1",
-		"rei-cursion": "~1.1.0",
+		"rei-cursion": "~1.2.0",
 		"sass": "^1.50.0",
 		"sass-loader": "~12.4.0",
 		"shelljs": "~0.8.5",
